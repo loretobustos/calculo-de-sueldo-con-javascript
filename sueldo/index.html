@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sueldos Empleados</title>
+</head>
+
+<body>
+
+    <script>
+        function calcular(sueldosbrutos) {
+            const desPrevicion = sueldosbrutos * 0.10;
+            const desSalud = sueldosbrutos * 0.07;
+            return sueldosbrutos - desPrevicion - desSalud;
+        }
+        function crearMatrizSueldosBrutos(empleos) {
+            return empleos.map(empleos => [empleos.nombre, empleos.sueldosbrutos]);
+        }
+
+        function crearMatrizSueldosliquidos(empleos) {
+            return empleos.map(empleos => [empleos.nombre, calcular(empleos.sueldosbrutos)]);
+
+        }
+
+        const empleos = [
+            { nombre: "Juan", sueldosbrutos: 500000 },
+            { nombre: "Ana", sueldosbrutos: 560000 },
+            { nombre: "Luis", sueldosbrutos: 520000 },
+            { nombre: "Maria", sueldosbrutos: 540000 },
+        ];
+
+        const  matrizsueldobruto = crearMatrizSueldosBrutos(empleos);
+        console.log("la matriz de sueldos brutos;" , matrizsueldobruto);
+        const matrizsueldoliquido = crearMatrizSueldosliquidos(empleos);
+        console.log("la matris de sueldos liquidos:" , matrizsueldoliquido)
+
+
+
+
+
+    </script>
+</body>
+
+</html>
